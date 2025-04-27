@@ -96,15 +96,15 @@ jobs:
           # cmake .. -G "Visual Studio 17 2022" -A X64 -DBBL_RELEASE_TO_PUBLIC=1 -DCMAKE_PREFIX_PATH="${{ github.workspace }}\deps\build\BambuStudio_dep\usr\local" -DCMAKE_INSTALL_PREFIX="../install-dir" -DCMAKE_BUILD_TYPE=Release -DWIN10SDK_PATH="C:/Program Files (x86)/Windows Kits/10/Include/10.0.22000.0"
           # cmake --build . --target install --config Release -- -m
 
-      - name: Pack app
-        if: inputs.os == 'windows-latest'
-        working-directory: ${{ github.workspace }}
-        shell: cmd
-        run: '"C:/Program Files/7-Zip/7z.exe" a -tzip BambuStudio_Windows_${{ env.ver }}_portable.zip ${{ github.workspace }}/install-dir'
+      # - name: Pack app
+      #   if: inputs.os == 'windows-latest'
+      #   working-directory: ${{ github.workspace }}
+      #   shell: cmd
+      #   run: '"C:/Program Files/7-Zip/7z.exe" a -tzip BambuStudio_Windows_${{ env.ver }}_portable.zip ${{ github.workspace }}/install-dir'
 
-      - name: Upload artifacts Win zip
-        if: inputs.os == 'windows-latest'
-        uses: actions/upload-artifact@v4
-        with:
-          name: BambuStudio_Windows_${{ env.ver }}_portable
-          path: ${{ github.workspace }}/BambuStudio_Windows_${{ env.ver }}_portable.zip
+      # - name: Upload artifacts Win zip
+      #   if: inputs.os == 'windows-latest'
+      #   uses: actions/upload-artifact@v4
+      #   with:
+      #     name: BambuStudio_Windows_${{ env.ver }}_portable
+      #     path: ${{ github.workspace }}/BambuStudio_Windows_${{ env.ver }}_portable.zip
